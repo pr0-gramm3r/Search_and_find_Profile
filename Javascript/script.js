@@ -65,6 +65,7 @@ const users = [{
 }
 ];
 
+let h = document.querySelector("h1");
 
 function showUsers(arr){
     arr.forEach(function(user){
@@ -104,7 +105,7 @@ card.appendChild(blurDiv);
 card.appendChild(contentDiv);
 
 // 7. Finally, append the card to the body or a specific container
-document.querySelector(".main").appendChild(card);
+document.querySelector(".main").appendChild(card);        
     });
 };
 
@@ -112,10 +113,17 @@ showUsers(users);
 
 let inp = document.querySelector("input");
 
-inp.addEventListener("input",function(){
-    let newUsers = users.filter((user)=>{
-        return user.name.toLocaleLowerCase().startsWith(inp.value.toLocaleLowerCase()); 
+inp.addEventListener("input", function() {
+    let newUsers = users.filter((user) => {
+        return user.name.toLowerCase().startsWith(inp.value.toLowerCase()); 
     });
+
     document.querySelector(".main").innerHTML = "";
-    showUsers(newUsers);
-})
+
+    if (newUsers.length === 0) {
+        h.textContent = "!!User Not Found";
+    } else {
+        h.textContent = ""; 
+        showUsers(newUsers); 
+    }
+});

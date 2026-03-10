@@ -73,3 +73,16 @@ input{
     margin: 18px -63px;
     font-size: 25px;
 }
+
+.card-link {
+    display: block;    /* Makes the whole area clickable */
+    color: inherit;    /* Prevents text from turning blue */
+    width: fit-content; /* Or match your card width */
+}
+
+.card-link:hover {
+    cursor: pointer;
+    /* Optional: add a slight scale effect */
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
